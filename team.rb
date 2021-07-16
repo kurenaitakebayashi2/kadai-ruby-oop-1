@@ -2,7 +2,7 @@ class Team
 
   attr_accessor :name, :win, :lose, :draw
 
-  def initialize(suffix)     
+  def initialize(name, win, lose, draw)     
 
     self.name = name
 
@@ -13,49 +13,45 @@ class Team
     self.draw = draw
 
   end
-
-  def name
-
-    self.name + self.suffix 
-
-  end
   
 
-  def calc_win_rate(suffix)
+  def calc_win_rate(win, lose)
     return self.win / (self.win + self.lose)
 
   end
 
-  def show_team_result(suffix)
+  def show_team_result
 
-   　puts "#{self.name}の2020年の成績は#{self.win}勝#{self.lose}敗#{self.draw}分。勝率は#{self.win / (self.win + self.lose)}です。
+  puts "#{self.name}の2020年の成績は#{self.win}勝#{self.lose}敗#{self.draw}分。勝率は#{self.win / (self.win + self.lose).to_f}です。"
    
 
   end
 
 end
 
-team1 = Team.new（name: Giants, win: 67,  lose: 45, draw: 8, calc_win_rate(self)）
+giants = Team.new("Giants", 67, 45, 8)
 
-team2 = Team.new（name: Tigers, win: 60,  lose: 50, draw: 7, calc_win_rate(self)）
 
-team3 = Team.new（name: Dragons, win: 60,  lose: 55, draw: 5, calc_win_rate(self)）
+tigers = Team.new("Tigers", 60,  53, 7)
 
-team4 = Team.new（name: BayStars, win: 56,  lose: 58, draw: 6, calc_win_rate(self)）
 
-team5 = Team.new（name: Carp, win: 52,  lose: 56, draw: 12, calc_win_rate(self)）
+dragons = Team.new("Dragons", 60, 55, 5)
 
-team6 = Team.new（name: Swallows, win: 41,  lose: 69, draw: 10, calc_win_rate(self)）
+baystars = Team.new("BayStars", 56, 58, 6)
 
-team1. show_team_result('Giants')
+carp = Team.new("Carp", 52, 56, 12)
 
-team2. show_team_result('Tigers')
+swallows = Team.new("Swallows", 41, 69, 10)
 
-team3. show_team_result('Dragons')
+giants.show_team_result
 
-team4. show_team_result('BayStars')
+tigers.show_team_result
 
-team5. show_team_result('Carp')
+dragons.show_team_result
 
-team6. show_team_result('Swallows')
+baystars.show_team_result
+
+carp.show_team_result
+
+swallows.show_team_result
 
