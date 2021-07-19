@@ -1,6 +1,6 @@
 class Team
 
-  attr_accessor :name, :win, :lose, :draw
+  attr_accessor :name, :win, :lose, :draw, :win_rate
 
   def initialize(name, win, lose, draw)     
 
@@ -14,18 +14,21 @@ class Team
 
   end
   
+  def calc_win_rate
+  
+  win_rate = self.win.to_f / (self.win + self.lose)
 
-  def calc_win_rate(win, lose)
-    return self.win / (self.win + self.lose)
 
   end
-
+  
+  
   def show_team_result
 
-  puts "#{self.name}の2020年の成績は#{self.win}勝#{self.lose}敗#{self.draw}分。勝率は#{self.win / (self.win + self.lose).to_f}です。"
+  puts "#{self.name}の2020年の成績は#{self.win}勝#{self.lose}敗#{self.draw}分。勝率は#{calc_win_rate}です。"
    
 
   end
+
 
 end
 
